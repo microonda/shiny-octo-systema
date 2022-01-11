@@ -1,0 +1,28 @@
+pares = list()
+matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+soma = maior = somapares = 0
+
+for linha in range(0, 3):
+    for coluna in range(0, 3):
+        try:
+            matrix[linha][coluna] = int(input(f'Digite o valor para o índice [{linha, coluna}]: '))
+        except TypeError:
+            print('Digite um número válido.')
+            continue
+        else:
+            if matrix[linha][coluna] % 2 == 0:
+                somapares += matrix[linha][coluna]
+print('-='*30)
+
+for linha in range(0, 3):
+    for coluna in range(0, 3):
+        print(f'[{matrix[linha][coluna]:^5}]', end='')
+    print()
+
+for lol in range(0, 3):
+    soma += matrix[lol][2]
+print('=-'*30)
+
+print(f"""A soma dos valores pares é {somapares}
+A soma dos valores da terceira coluna é {soma}
+O maior valor da segunda linha é {max(matrix[1])}""")
